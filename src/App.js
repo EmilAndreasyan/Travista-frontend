@@ -1,18 +1,23 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import fetchItems from './actions/fetchItems'
+import fetchCities from './actions/fetchCities'
+import CountriesContainer from './containers/CountriesContainer'
+import CitiesContainer from './containers/CitiesContainer'
+import SightseeingsContainer from './containers/SightseeingsContainer'
 
 class App extends React.Component {
   state = {  }
 
   componentDidMount () {
-    this.props.fetchItems()
+    this.props.fetchCities()
   }
 
   render() { 
     return (
       <div className="App">
-        Hello World
+        <CountriesContainer/>
+        <CitiesContainer/>
+        <SightseeingsContainer/>
       </div>
     );
   }
@@ -24,5 +29,5 @@ class App extends React.Component {
 //   }
 // }
 //const mapDispatchToProps
-export default connect(null, {fetchItems})(App);
+export default connect(null, {fetchCities})(App);
 
