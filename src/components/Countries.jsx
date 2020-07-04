@@ -1,14 +1,15 @@
 import React from 'react';
+import CountryShow from './CountryShow'
 
-const Countries = (props) => {
+const Countries = (props) => { // props are undefined
 	return (
-		<div>
+		<>
 			{props.countries.map((country) => (
-				<li key={country.id}>
-					{country.name} - {country.flag} - {country.language} - {country.currency} - {country.area}
-				</li>
+				<div key={country.id}>
+					<CountryShow country={country}/>
+				</div>
 			))}
-		</div>
+		</>
 	);
 };
 

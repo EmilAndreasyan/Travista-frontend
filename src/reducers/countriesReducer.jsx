@@ -3,6 +3,8 @@ export default function countriesReducer(state = {countries: []}, action) {
   switch (action.type) {
     case 'FETCH_COUNTRIES':
       return {countries: action.payload}
+    case 'ADD_COUNTRY':
+      return {...state, countries: [...state.countries, action.payload]} //all previous countries + added country (action.payload), like push()
     default:  
     return state
   }

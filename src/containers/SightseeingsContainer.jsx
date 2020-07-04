@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import fetchSightseeings from '../actions/fetchSightseeings'
-import SightseeingInput from '../components/SightseeingInput'
+import {fetchSightseeings} from '../actions/fetchSightseeings'
+//import SightseeingInput from '../components/SightseeingInput'
 import Sightseeings from '../components/Sightseeings'
 
 class SightseeingsContainer extends React.Component {
@@ -10,7 +10,7 @@ class SightseeingsContainer extends React.Component {
     }
     render() { 
         return ( <div>
-            <SightseeingInput/>
+            {/* <SightseeingInput/> */}
             <Sightseeings sightseeings={this.props.sightseeings}/>
             </div> );
     }

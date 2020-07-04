@@ -1,11 +1,11 @@
 import React from 'react';
 
-const Cities = (props) => {
+const Cities = ({cities}) => {
     return (
         <div>
-        Cities
+        {/* {cities.map(city => <li key={city.id}>{city.name} - {city.image} - {city.population} - {city.description}</li>)} */}
         </div>
     )
 }
- 
+
 export default Cities;

@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import fetchCities from '../actions/fetchCities';
-import CityInput from '../components/CityInput'
+import {fetchCities} from '../actions/fetchCities';
+//import CityInput from '../components/CityInput'
 import Cities from '../components/Cities'
 
 class CitiesContainer extends React.Component {
@@ -10,8 +10,8 @@ class CitiesContainer extends React.Component {
     }
     render() { 
         return ( <div>
-            <CityInput/>
-            <Cities/>
+            {/* <CityInput/> */}
+            <Cities cities={this.props.cities}/>
             </div> );
     }
 }
