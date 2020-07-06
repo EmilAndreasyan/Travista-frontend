@@ -1,4 +1,4 @@
-export function addCountry (data) { // data == this.state from CountryForm
+export function addCountry (data) { // data == this.state from CountryInput
     const BASE_URL = 'http://localhost:3000/api/v1'
     return (dispatch) => {
     fetch(`${BASE_URL}/countries`, {

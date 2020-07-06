@@ -2,7 +2,7 @@ import React from 'react'
 import {connect} from 'react-redux';
 import {addCountry} from '../actions/addCountry';
 
-class CountryForm extends React.Component {
+class CountryInput extends React.Component {
     state = { name: '', flag: '', capital: '', language: '', currency: '', area: '' }
 
     handleChange = (event) => {
@@ -46,4 +46,4 @@ class CountryForm extends React.Component {
     }
 }
  
-export default connect(null, {addCountry})(CountryForm);
+export default connect(null, {addCountry})(CountryInput);

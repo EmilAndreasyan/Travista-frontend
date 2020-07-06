@@ -6,6 +6,7 @@ import {createStore, applyMiddleware, compose} from 'redux'; // compose if we wa
 import thunk from 'redux-thunk';
 import rootReducer from './reducers/rootReducer'
 import { BrowserRouter as Router } from 'react-router-dom';
+import './App.css'
 // import * as serviceWorker from './serviceWorker';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
