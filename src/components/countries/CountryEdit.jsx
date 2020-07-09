@@ -35,10 +35,9 @@ class CountryEdit extends React.Component {
 <input type="text" onChange={this.handleChange} value={currency} name='currency'/></label><br/>
 <label htmlFor="">Area: 
 <input type="text" onChange={this.handleChange} value={area} name='area'/></label><br/>
-<input type="submit" value="Update" className="btn-add"/>
+<input type="submit" value="Update" className="btn btn-primary"/>
     </form>
         <p>{this.state.name}</p>
-        <p>{this.state.flag}</p>
         <p>{this.state.capital}</p>
         <p>{this.state.language}</p>
         <p>{this.state.currency}</p>

@@ -51,18 +51,6 @@ html, body {
   margin: 10px 0;
 }
 
-.btn-delete {
-  cursor: pointer;
-  display: inline-block;
-  color: #fff;
-  background-color: darkred;
-  font-size: 1em;
-  text-align: center;
-  padding: 5px 5px;
-  border: 0;
-  margin: 10px 0;
-}
-
 header {
   height: 200px;
 }

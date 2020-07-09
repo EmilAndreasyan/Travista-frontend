@@ -1,8 +1,8 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {addCity} from '../../actions/addCity';
+import {editCity} from '../../actions/editCity';
 
-class CityInput extends React.Component {
+class CityEdit extends React.Component {
     state = { name: '', image_url: '', population: '', description: '' }
 
     handleChange = event => {
@@ -10,16 +10,16 @@ class CityInput extends React.Component {
         this.setState({[name]: value}) // bracket notation to be treated as key of object
     }
 
-    handleSubmit = event => {
+    handleEdit = event => {
         event.preventDefault()
-        this.props.addCity(this.state, this.props.city.country_id)
+        this.props.editCity(this.state, this.props.city.id, this.props.city.country_id)
         this.setState({name: '', image_url: '', description: '', population: ''})
     }
     render() { 
         const {name, image_url, population, description} = this.state
         return ( 
             <>
-             <form onSubmit={this.handleSubmit}>
+             <form onSubmit={this.handleEdit}>
         <label htmlFor="">City Name: 
 <input type="text" onChange={this.handleChange} value={name} name='name'/></label><br/>
 <label htmlFor="">Image: 
@@ -31,7 +31,6 @@ class CityInput extends React.Component {
 <input type="submit" className="btn btn-primary"/>
     </form>
         <p>{name}</p><hr></hr>
-        <p> {image_url}</p>
         <p>{population}</p>
         <p>{description}</p>
             </>
@@ -39,4 +38,4 @@ class CityInput extends React.Component {
     }
 }
  
-export default connect(null, {addCity})(CityInput);
+export default connect(null, {editCity})(CityEdit);

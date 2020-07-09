@@ -7,7 +7,7 @@ import thunk from 'redux-thunk';
 import countriesReducer from './reducers/countriesReducer'
 import { BrowserRouter as Router } from 'react-router-dom';
 import './App.css'
-//import 'bootstrap/dist/css/bootstrap.min.css'
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 

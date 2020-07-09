@@ -35,7 +35,7 @@ class CountryInput extends React.Component {
 <input type="text" onChange={this.handleChange} value={currency} name='currency'/></label><br/>
 <label htmlFor="">Area: 
 <input type="text" onChange={this.handleChange} value={area} name='area'/></label><br/>
-<input type="submit" className="btn-add"/>
+<input type="submit" className="btn btn-primary"/>
     </form>
         <p>{this.state.name}</p>
         <p>{this.state.capital}</p>

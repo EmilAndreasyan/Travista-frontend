@@ -4,7 +4,6 @@ import {Route, Switch, Link} from 'react-router-dom';
 import {fetchCountries} from '../actions/fetchCountries';
 import CountryInput from '../components/countries/CountryInput';
 import Countries from '../components/countries/Countries';
-import CountryEdit from '../components/countries/CountryEdit'
 
 class CountriesContainer extends React.Component {
 	

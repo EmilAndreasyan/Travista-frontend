@@ -1,24 +1,15 @@
 import React from 'react';
-import NavBar from './NavBar';
+import Navbar from './NavBar'
 
 class App extends React.Component {
-	state = {};
-	
-	render() {
-		return (
-			<div className="App">
-				<header>
-				<NavBar />	
-				</header>
-			</div>
-		);
-	}
+    state = {  }
+    render() { 
+        return ( 
+            <div className="jumbotron">
+                <Navbar/>
+            </div>
+         );
+    }
 }
-
-// const mapStateToProps = (state) => {
-//   return {
-//     items: state.items
-//   }
-// }
-//const mapDispatchToProps
+ 
 export default App;

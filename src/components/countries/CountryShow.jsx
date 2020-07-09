@@ -15,8 +15,8 @@ const CountryShow = (props) => {
 {/* when renders first time, country is undefined, so we want to return null first time and redner only when country is defined */}
 </h3>
 {/* <CitiesContainer cities={country.cities}/> */}
-<button onClick={() => props.handleDelete(props.country)} className="btn-delete">Delete country</button><br/>
-<Link to={`/countries/${props.country.id}/edit`}>Edit {props.country.name}</Link><br/>
+<button onClick={() => props.handleDelete(props.country)} className="btn btn-danger">Delete {props.country.name}</button><br/>
+<Link to={`/countries/${props.country.id}/edit`}><button className="btn btn-secondary">Edit {props.country.name}</button></Link><br/>
 <Link to={`/countries/${props.country.id}/cities`}>Explore cities of {props.country.name}</Link>
 <Switch>
 <Route path={`/countries/${props.country.id}/edit`} render={(routerProps) => <CountryEdit {...routerProps} country={props.country}/>}></Route>
