@@ -1,27 +1,33 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import {fetchCities} from '../actions/fetchCities';
-import CityInput from '../components/CityInput'
-import Cities from '../components/Cities'
+import { fetchCities } from '../actions/fetchCities';
+
+import Cities from '../components/cities/Cities';
 
 class CitiesContainer extends React.Component {
-    componentDidMount () {
-        this.props.fetchCities()
-    }
-    render() { 
-        return ( <div>
-            <h1>Cities</h1>
-            <CityInput cities={this.props.cities}/>
-            <Cities cities={this.props.country && this.props.country.cities}/>
-            {/* receives this.props.country.cities from CountryShow */}
-            </div> );
-    }
+	componentDidMount() {
+		// fetches cities of country.id, but how to invoke all cities without countries from navbar?
+		this.props.fetchCities(this.props.country.id);
+		//  || this.props.fetchCities(this.props)
+	}
+	render() {
+		return (
+			<div>
+				<Cities cities={this.props.country.cities} country={this.props.country}/>
+				{/* <Cities country={this.props.country}/> */}
+				{/* receives this.props.country.cities from CountryShow */}
+				
+				
+                {/* <CityInput cities={this.props.country && this.props.cities}/> */}
+			</div>
+		);
+	}
 }
 
-const mapStateToProps = state => {
-    return {
-        cities: state.cities
-    }
-}
- 
-export default connect(mapStateToProps, {fetchCities})(CitiesContainer);
+const mapStateToProps = (state) => {
+	return {
+		cities: state.countries
+	};
+};
+
+export default connect(mapStateToProps, { fetchCities })(CitiesContainer);

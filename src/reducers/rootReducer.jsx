@@ -4,7 +4,7 @@ import citiesReducer from './countriesReducer';
 import sightseeingsReducer from './sightseeingsReducer'
  
 const rootReducer = combineReducers({
-  users: countriesReducer,
+  countries: countriesReducer,
   cities: citiesReducer,
   sightseeings: sightseeingsReducer
 });

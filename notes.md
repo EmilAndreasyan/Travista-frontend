@@ -22,5 +22,12 @@ when clicked on city, should diplay list of sightseengs
 user should be able to like, rate, leave a comment, CRUD sightseengs
 
 questoions: 
-- countries are undefined, maybe this is why in redux store there are no countries, but there are users??
+- countries are undefined, maybe this is why in redux store there are no countries, but there are users?? In Redux devtools tree, users have countries folder, as well as cities have countries folder
 - Routing in React, switch, routerProp
+- when creating Country with React, doesn't pass id
+- in Cities, make sure city.id and city.county_id are working when invoked by delete button
+- need to somehow pass id of the country when fetching cities, to see associated cities
+- syntax error in deleteCountries action
+- how to add flag_url and img_url in input type="file"?
+- fetches countryId/cities, but not all cities from Navbar
+- <Link to={`countries/${this.props.country.id}/cities/new`}>Add new city</Link> doesn't show the CityInput component

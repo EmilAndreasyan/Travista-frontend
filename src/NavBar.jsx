@@ -1,26 +1,27 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route, Link, useRouteMatch, useParams } from 'react-router-dom';
-import CitiesContainer from './containers/CitiesContainer';
 import CountriesContainer from './containers/CountriesContainer';
-import SightseeingsContainer from './containers/SightseeingsContainer';
+import CityInput from './components/cities/CityInput';
 import HomeContainer from './containers/HomeContainer'
+import Search from './Search'
 
 class Navbar extends React.Component {
+	// state = {query: '', setQuery: ''}
 	render(){
-	return (
-<>
+		return (
+			<>
 		<Router>
 			<ul className='navbar'>
 				<Link to="/">Home</Link>
 				<Link to="/countries">Countries</Link>
-				<Link to="/cities">Cities</Link>
-				<Link to="/sightseeings">Sightseeings</Link>
+				<Link to="/cities/new">Add new City</Link>
+			{/* <Search getQuery={(q) => setQuery(q)}/>				 */}
 			</ul>
+
 			<Switch>
 				<Route exact path="/" component={HomeContainer}/>
 				<Route path="/countries" component={CountriesContainer}/>
-				<Route path="/sightseeings" component={SightseeingsContainer}/>
-				<Route path="/cities" component={CitiesContainer}/>
+				<Route path="/cities/new" component={CityInput}/>
 			</Switch>
 		</Router>
 </>
