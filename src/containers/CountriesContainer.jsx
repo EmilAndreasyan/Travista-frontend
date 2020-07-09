@@ -4,6 +4,7 @@ import {Route, Switch, Link} from 'react-router-dom';
 import {fetchCountries} from '../actions/fetchCountries';
 import CountryInput from '../components/countries/CountryInput';
 import Countries from '../components/countries/Countries';
+import CountryEdit from '../components/countries/CountryEdit'
 
 class CountriesContainer extends React.Component {
 	
@@ -17,7 +18,9 @@ class CountriesContainer extends React.Component {
 	{/* {this.props.countries.map(country => {
 		return (<Link to={`countries/${country.id}`}><h3>{country.name}, capital: {country.capital}</h3></Link>)
 	})} */}
-				<Link to='/countries/new'>Add New Country</Link>
+
+
+				<Link to='/countries/new'>Add New Country</Link><br/>
 				<Switch>
 				{/* With Switch, /countries/new should be above /countries/:id, so that we have access to that, also, we don't need exact */}
 				<Route path='/countries/new' component={CountryInput}/>

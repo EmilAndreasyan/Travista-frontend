@@ -11,7 +11,7 @@ class CountryEdit extends React.Component {
         this.setState({[name]: value}) // without brackets will interpret name as key of object!
     }
 
-    handleSubmit = (event) => {
+    handleEdit = (event) => {
         event.preventDefault()
         let country = {...this.state, id: this.props.country.id}
         this.props.editCountry(country)
@@ -22,7 +22,7 @@ class CountryEdit extends React.Component {
         const {name, flag_url, capital, language, currency, area} = this.state
         return ( 
         <>
-    <form onSubmit={this.handleSubmit}>
+    <form onSubmit={this.handleEdit}>
         <label htmlFor="">Country Name: 
 <input type="text" onChange={this.handleChange} value={name} name='name'/></label><br/>
 <label htmlFor="">Flag: 
@@ -35,7 +35,7 @@ class CountryEdit extends React.Component {
 <input type="text" onChange={this.handleChange} value={currency} name='currency'/></label><br/>
 <label htmlFor="">Area: 
 <input type="text" onChange={this.handleChange} value={area} name='area'/></label><br/>
-<input type="submit" value="Update" className="btn"/>
+<input type="submit" value="Update" className="btn-add"/>
     </form>
         <p>{this.state.name}</p>
         <p>{this.state.flag}</p>

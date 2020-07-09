@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 import CountryShow from './CountryShow'
 import {connect} from 'react-redux';
 import {deleteCountry} from '../../actions/deleteCountry'
-import { render } from '@testing-library/react';
+//import { render } from '@testing-library/react';
 
 class Countries extends React.Component {
 	handleDelete = (country) =>{

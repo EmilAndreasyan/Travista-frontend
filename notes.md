@@ -30,4 +30,3 @@ questoions:
 - syntax error in deleteCountries action
 - how to add flag_url and img_url in input type="file"?
 - fetches countryId/cities, but not all cities from Navbar
-- <Link to={`countries/${this.props.country.id}/cities/new`}>Add new city</Link> doesn't show the CityInput component

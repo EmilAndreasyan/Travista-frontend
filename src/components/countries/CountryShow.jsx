@@ -1,9 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
 // import {Redirect} from 'react-router-dom';
-import {Link, Route} from 'react-router-dom'
-//import CitiesContainer from '../../containers/CitiesContainer'
+import {Link, Route, Switch} from 'react-router-dom'
 import CountryEdit from './CountryEdit'
-import CityShow from '../cities/CityShow';
 import CitiesContainer from '../../containers/CitiesContainer';
 
 const CountryShow = (props) => {
@@ -13,16 +11,17 @@ const CountryShow = (props) => {
     return (
         <div className="card">
 <h3>
-{props.country ? (<div>{<img src={props.country.flag_url}/>}<p> Language: {props.country.language}</p> <p> Currency: {props.country.currency}</p> <p>Area: {props.country.area}</p></div>) : null}
+{props.country ? (<div>{<img src={props.country.flag_url} alt={props.country.name}/>}<p> Language: {props.country.language}</p> <p> Currency: {props.country.currency}</p> <p>Area: {props.country.area}</p></div>) : null}
 {/* when renders first time, country is undefined, so we want to return null first time and redner only when country is defined */}
 </h3>
 {/* <CitiesContainer cities={country.cities}/> */}
 <button onClick={() => props.handleDelete(props.country)} className="btn-delete">Delete country</button><br/>
+<Link to={`/countries/${props.country.id}/edit`}>Edit {props.country.name}</Link><br/>
 <Link to={`/countries/${props.country.id}/cities`}>Explore cities of {props.country.name}</Link>
-<Route exact path={`/countries/${props.country.id}/cities`} render={(routerProps) => <CitiesContainer {...routerProps} country={props.country}/>}></Route>
-{/* <Link to={`country/${country.id}/edit`}>Edit a Country</Link> */}
-{/* <CountryEdit country={country}/> */}
-{/* <Route path={`country${country.id}/edit`} component={CountryEdit}/> */}
+<Switch>
+<Route path={`/countries/${props.country.id}/edit`} render={(routerProps) => <CountryEdit {...routerProps} country={props.country}/>}></Route>
+<Route path={`/countries/${props.country.id}/cities`} render={(routerProps) => <CitiesContainer {...routerProps} country={props.country}/>}></Route>
+</Switch>
 </div>
     )
 }
