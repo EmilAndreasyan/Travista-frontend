@@ -4,7 +4,7 @@ export const editCity = (city, cityId, countryId) => {
 		fetch(`${BASE_URL}/countries/${countryId}/cities/${cityId}`, {
 			headers: {
 				'Content-Type': 'application/json',
-				Accept: 'application/json'
+				'Accept': 'application/json'
 			},
             method: 'PATCH',
             body: JSON.stringify(city)

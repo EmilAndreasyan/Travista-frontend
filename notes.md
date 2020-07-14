@@ -23,7 +23,4 @@ user should be able to like, rate, leave a comment, CRUD sightseengs
 
 questoions: 
 - Routing in React, switch, routerProp, match.url, useRouteMatch, useParams
-- how to add flag_url and img_url in input type="file"?
 - fetches countryId/cities, but not all cities from Navbar
-- in reducer, cannot perform 'EDIT_CITY'
-- action addCity doesn't work

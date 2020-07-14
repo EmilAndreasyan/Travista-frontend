@@ -4,11 +4,11 @@
   padding: 0;
 }
 
-.App {
+/* .App {
   margin: auto;
   width: 90%;
   padding: 0 20px;
-}
+} */
 
 html, body {
   background-image: url(./images/kyle-thacker-cNMgKxev6ak-unsplash.jpg);
@@ -23,16 +23,16 @@ html, body {
       display: flex;
       background-color: darkcyan;
   }
-  a {
+  /* a {
     margin-left: 1rem;
     text-decoration: none;
     color: lightgoldenrodyellow;
     font-size: 1.7rem;
-  }  
+  }   */
 
-  li {
+  /* li {
     list-style-type: none;
-  }
+  } */
 
   .App-logo {
     height: 40vmin;

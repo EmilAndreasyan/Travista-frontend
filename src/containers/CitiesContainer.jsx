@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { fetchCities } from '../actions/fetchCities';
-
 import Cities from '../components/cities/Cities';
 
 class CitiesContainer extends React.Component {
@@ -14,11 +13,6 @@ class CitiesContainer extends React.Component {
 		return (
 			<div>
 				<Cities cities={this.props.country.cities} country={this.props.country}/>
-				{/* <Cities country={this.props.country}/> */}
-				{/* receives this.props.country.cities from CountryShow */}
-				
-				
-                {/* <CityInput cities={this.props.country && this.props.cities}/> */}
 			</div>
 		);
 	}

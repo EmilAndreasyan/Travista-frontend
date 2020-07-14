@@ -4,7 +4,7 @@ import {addCity} from '../../actions/addCity';
 
 class CityInput extends React.Component {
     state = { name: '', image_url: '', population: '', description: '' }
-
+    
     handleChange = event => {
         const {name, value} = event.target
         this.setState({[name]: value}) // bracket notation to be treated as key of object
@@ -12,7 +12,7 @@ class CityInput extends React.Component {
 
     handleSubmit = event => {
         event.preventDefault()
-        this.props.addCity(this.state, this.props.city.country_id)
+        this.props.addCity(this.state, this.props.country.id)
         this.setState({name: '', image_url: '', description: '', population: ''})
     }
     render() { 
@@ -23,15 +23,14 @@ class CityInput extends React.Component {
         <label htmlFor="">City Name: 
 <input type="text" onChange={this.handleChange} value={name} name='name'/></label><br/>
 <label htmlFor="">Image: 
-<input type="file" onChange={this.handleChange} value={image_url} name='image'/></label><br/>
+<input type="text" onChange={this.handleChange} value={image_url} name='image_url'/></label><br/>
 <label htmlFor="">Population: 
 <input type="text" onChange={this.handleChange} value={population} name='population'/></label><br/>
 <label htmlFor="">Description: 
 <input type="text" onChange={this.handleChange} value={description} name='description'/></label><br/>
-<input type="submit" className="btn btn-primary"/>
+<input type="submit" className="btn btn-success"/>
     </form>
-        <p>{name}</p><hr></hr>
-        <p> {image_url}</p>
+        <p>{name}</p>
         <p>{population}</p>
         <p>{description}</p>
             </>

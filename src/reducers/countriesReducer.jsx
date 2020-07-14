@@ -47,6 +47,7 @@ export default function countriesReducer(state = {countries: [], cities: [], sig
         }
       })
       return {...state, cities: cities}
+      
     case 'EDIT_CITY':
       let editedCity = state.cities.map(city => {
         if(city.id === action.payload.id) {

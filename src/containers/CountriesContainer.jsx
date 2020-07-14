@@ -10,16 +10,10 @@ class CountriesContainer extends React.Component {
 	componentDidMount() {
 		this.props.fetchCountries();
 	}
-	
 	render() {
 		return (
-			<div>
-	{/* {this.props.countries.map(country => {
-		return (<Link to={`countries/${country.id}`}><h3>{country.name}, capital: {country.capital}</h3></Link>)
-	})} */}
-
-
-				<Link to='/countries/new'>Add New Country</Link><br/>
+			<>
+				<Link to='/countries/new' className="card-title text-white-50 bg-info mb-3">Add New Country</Link><br/>
 				<Switch>
 				{/* With Switch, /countries/new should be above /countries/:id, so that we have access to that, also, we don't need exact */}
 				<Route path='/countries/new' component={CountryInput}/>
@@ -30,7 +24,7 @@ class CountriesContainer extends React.Component {
 				{/* if we want to pass Route props via render, we should use routerProp */}
 				{/* unlike component, render passes function, so that we have access to props*/}
 				</Switch>
-			</div>
+			</>
 		);
 	}
 }

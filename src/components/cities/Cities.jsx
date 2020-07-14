@@ -1,29 +1,43 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {deleteCity} from '../../actions/deleteCity'
-import { Link } from 'react-router-dom';
 import CityShow from './CityShow'
+import CitiesAll from './CitiesAll';
 
 class Cities extends React.Component {
+
+    state = {like: false}
 
     handleDelete = (city) =>{
         // make sure city.id and city.county_id are working
         this.props.deleteCity(city.id, city.country_id)
     }
+
+    toggleLike = (event) => {
+        let toggleColor = "m-2 btn btn-"
+        this.setState({like: !this.state.like})
+        if (this.state.like) {
+        event.target.innerHTML = 'liked';
+        event.target.className = toggleColor + "success"
+        } else {
+            event.target.innerHTML = 'disliked';
+        event.target.className = toggleColor + "warning"
+        }
+    }
+
     render (){
         const {country, cities} = this.props
         return (
             <div className="cards">
             {cities && cities.map(city => (
-                <ul key={city.id}>
-                    <Link to={`/countries/${country.id}/cities/${city.id}`}><li>{city.name}</li></Link><CityShow handleDelete={this.handleDelete} city={city} country={country}/>
-                </ul>
+                <div key={city.id}>
+                    <CityShow handleDelete={this.handleDelete} city={city} country={country} toggleLike={this.toggleLike}/>
+                    <CitiesAll handleDelete={this.handleDelete} toggleLike={this.toggleLike}/>
+                </div>
             ))}
-           {/* <CityShow handleDelete={this.handleDelete} cities={this.props.cities}/> */}
             </div>
         )
     }
-   
 }
 
 export default connect(null, {deleteCity})(Cities);

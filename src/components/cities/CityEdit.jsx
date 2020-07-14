@@ -23,16 +23,16 @@ class CityEdit extends React.Component {
         <label htmlFor="">City Name: 
 <input type="text" onChange={this.handleChange} value={name} name='name'/></label><br/>
 <label htmlFor="">Image: 
-<input type="file" onChange={this.handleChange} value={image_url} name='image'/></label><br/>
+<input type="text" onChange={this.handleChange} value={image_url} name='image_url'/></label><br/>
 <label htmlFor="">Population: 
 <input type="text" onChange={this.handleChange} value={population} name='population'/></label><br/>
 <label htmlFor="">Description: 
 <input type="text" onChange={this.handleChange} value={description} name='description'/></label><br/>
-<input type="submit" className="btn btn-primary"/>
+<input type="submit" className="btn btn-success"/>
     </form>
-        <p>{name}</p><hr></hr>
-        <p>{population}</p>
-        <p>{description}</p>
+        <span><p>{name}</p></span>
+        <span><p>{population}</p></span>
+        <span><p>{description}</p></span>
             </>
          );
     }

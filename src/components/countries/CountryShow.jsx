@@ -1,29 +1,64 @@
 import React from 'react';
 // import {Redirect} from 'react-router-dom';
-import {Link, Route, Switch} from 'react-router-dom'
-import CountryEdit from './CountryEdit'
+import { Link, Route, Switch } from 'react-router-dom';
+import CountryEdit from './CountryEdit';
 import CitiesContainer from '../../containers/CitiesContainer';
+import CityInput from '../cities/CityInput';
 
-const CountryShow = (props) => {
-    console.log(props);
-    //let country = props.countries[props.match.params.id - 1] // index of array starts at 0, that's why -1
-    //let country = country.filter(country => country.id === props.match.params.id)[0]
-    return (
-        <div className="card">
-<h3>
-{props.country ? (<div>{<img src={props.country.flag_url} alt={props.country.name}/>}<p> Language: {props.country.language}</p> <p> Currency: {props.country.currency}</p> <p>Area: {props.country.area}</p></div>) : null}
-{/* when renders first time, country is undefined, so we want to return null first time and redner only when country is defined */}
-</h3>
-{/* <CitiesContainer cities={country.cities}/> */}
-<button onClick={() => props.handleDelete(props.country)} className="btn btn-danger">Delete {props.country.name}</button><br/>
-<Link to={`/countries/${props.country.id}/edit`}><button className="btn btn-secondary">Edit {props.country.name}</button></Link><br/>
-<Link to={`/countries/${props.country.id}/cities`}>Explore cities of {props.country.name}</Link>
-<Switch>
-<Route path={`/countries/${props.country.id}/edit`} render={(routerProps) => <CountryEdit {...routerProps} country={props.country}/>}></Route>
-<Route path={`/countries/${props.country.id}/cities`} render={(routerProps) => <CitiesContainer {...routerProps} country={props.country}/>}></Route>
-</Switch>
-</div>
-    )
-}
+const CountryShow = ({ country, handleDelete }) => {
+	//let country = props.countries[props.match.params.id - 1] // index of array starts at 0, that's why -1
+	//let country = country.filter(country => country.id === props.match.params.id)[0]
+	return (
+		<div className="card text-white bg-secondary mb-3" style={{ maxWidth: '20rem' }}>
+			<div className="card-body bg-secondary">
+				<h4 className="card-title">
+					{country ? (
+						<div>
+							{
+								<img
+									src={country.flag_url}
+									alt={country.name}
+									style={{ height: '200px', width: '100%', display: 'block' }}
+								/>
+							}
+							<p>{country.name}</p><p> Language: {country.language}</p> <p> Currency: {country.currency}</p>{' '}
+							<p>Area: {country.area} mi²</p>
+						</div>
+					) : null}
+				</h4>
+				<button onClick={() => handleDelete(country)} className="btn btn-danger">
+					Delete {country.name}
+				</button>
+				<br />
+
+				<Link to={`/countries/${country.id}/edit`}>
+					<button className="btn btn-secondary">Edit {country.name}</button>
+				</Link>
+				<br />
+				<Link to={`/countries/${country.id}/cities`}><button className="btn btn-outline-light">Explore cities of {country.name}</button>
+				</Link>
+				<Link to={`/countries/${country.id}/cities/new`}>
+					<button className="btn btn-success m-2">Add new city</button>
+				</Link>
+				<Switch>
+					<Route
+						path={`/countries/${country.id}/edit`}
+						render={(routerProps) => <CountryEdit {...routerProps} country={country} />}
+					/>
+						<Route path={`/countries/${country.id}/cities/new`} render={(routerProps) => <CityInput {...routerProps} country={country}/>} />
+					<Route
+						path={`/countries/${country.id}/cities`}
+						render={(routerProps) => <CitiesContainer {...routerProps} country={country} />}
+					/>
+					{/* <Route
+							exact path={`/countries/${country.id}/cities/new`}
+							render={(routerProps) => <CityInput {...routerProps} city={country.city} country={country} />}
+						/> */}
+
+				</Switch>
+			</div>
+		</div>
+	);
+};
 
 export default CountryShow;

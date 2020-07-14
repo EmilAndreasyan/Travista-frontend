@@ -1,12 +1,17 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route, Link, useRouteMatch, useParams } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import CountriesContainer from './containers/CountriesContainer';
-import CityInput from './components/cities/CityInput';
 import HomeContainer from './containers/HomeContainer'
+import CitiesAll from './components/cities/CitiesAll'
+import {connect} from 'react-redux';
+import {fetchCountries} from '../src/actions/fetchCountries'
 //import Search from './Search'
 
 class Navbar extends React.Component {
-	state = {query: '', setQuery: ''}
+	// state = {query: '', setQuery: ''}
+	componentDidMount() {
+		this.props.fetchCountries()
+	}
 	render(){
 		return (
 <>
@@ -19,13 +24,13 @@ class Navbar extends React.Component {
 			<div className="collapse navbar-collapse" id="navbarColor01">
 			  <ul className="navbar-nav mr-auto">
 				<li className="nav-item active">
-				<Link to="/">Home<span className="sr-only">(current)</span></Link>
+				<Link to="/" className="nav-link">Home<span className="sr-only">(current)</span></Link>
 				</li>
 				<li className="nav-item">
-				<Link to="/countries">Countries</Link>
+				<Link to="/countries" className="nav-link">Countries</Link>
 				</li>
 				<li className="nav-item">
-				<Link to="/cities/new">Add new City</Link>
+				<Link to="/cities/all" className="nav-link">Cities</Link>
 				</li>
 			  </ul>
 			  <form className="form-inline my-2 my-lg-0">
@@ -37,7 +42,7 @@ class Navbar extends React.Component {
 		  <Switch>
 				<Route exact path="/" component={HomeContainer}/>
 				<Route path="/countries" component={CountriesContainer}/>
-				<Route path="/cities/new" component={CityInput}/>
+				<Route path="/cities/all" render={(routerProp) => <CitiesAll {...routerProp} countries={this.props.countries}/>}/>
 			</Switch>
 		  </Router>
 </>
@@ -75,6 +80,11 @@ class Navbar extends React.Component {
 // 	return <h3>{topicId}</h3>;
 // }
 
+const mapStateToProps = (state) => {
+	return {
+		countries: state.countries
+	};
+};
 
+export default connect(mapStateToProps, {fetchCountries})(Navbar);
 
-export default Navbar;
