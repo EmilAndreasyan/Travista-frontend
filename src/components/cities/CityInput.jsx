@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import {addCity} from '../../actions/addCity';
 
 class CityInput extends React.Component {
-    state = { name: '', image_url: '', population: '', description: '' }
+    state = { name: '', image_url: '', population: '', description: '', comment: '' }
     
     handleChange = event => {
         const {name, value} = event.target
@@ -13,10 +13,10 @@ class CityInput extends React.Component {
     handleSubmit = event => {
         event.preventDefault()
         this.props.addCity(this.state, this.props.country.id)
-        this.setState({name: '', image_url: '', description: '', population: ''})
+        this.setState({name: '', image_url: '', description: '', population: '', comment: ''})
     }
     render() { 
-        const {name, image_url, population, description} = this.state
+        const {name, image_url, population, description, comment} = this.state
         return ( 
             <>
              <form onSubmit={this.handleSubmit}>
@@ -28,11 +28,14 @@ class CityInput extends React.Component {
 <input type="text" onChange={this.handleChange} value={population} name='population'/></label><br/>
 <label htmlFor="">Description: 
 <input type="text" onChange={this.handleChange} value={description} name='description'/></label><br/>
+<label htmlFor="">Comment: 
+<textarea onChange={this.handleChange} value={comment} name='comment'/></label><br/>
 <input type="submit" className="btn btn-success"/>
     </form>
         <p>{name}</p>
         <p>{population}</p>
         <p>{description}</p>
+        <p>{comment}</p>
             </>
          );
     }

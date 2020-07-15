@@ -6,7 +6,7 @@ import CitiesAll from './CitiesAll';
 
 class Cities extends React.Component {
 
-    state = {like: false}
+    state = {like: true}
 
     handleDelete = (city) =>{
         // make sure city.id and city.county_id are working

@@ -16,10 +16,9 @@ const CityShow = ({ city, handleDelete, country, toggleLike }) => {
 								style={{ height: '150px', width: '100%', display: 'block' }}
 							/>
 						}
-						Population: {city.population}
-						<br />
-						Description: {city.description}
-						<br />
+						Population: {city.population}<br/>
+						Description: {city.description}<br/>
+						Comment: {city.comment}<br/>
 						{
 							<button onClick={() => handleDelete(city)} className="btn btn-danger m-2">
 								Delete {city.name}
