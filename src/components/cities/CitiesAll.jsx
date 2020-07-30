@@ -27,11 +27,11 @@ const CitiesAll = ({ countries, handleDelete, toggleLike }) => {
 											Description: {city.description}
 											<br />
 											{/* error: toggleLike and handleDelete are not a functioning */}
-											{/* <button onClick={() => toggleLike} className="btn btn-add m-2">Like</button> */}
-                                            {/* {<button onClick={() => handleDelete(city)}
+											<button onClick={toggleLike} className="btn btn-add m-2">Like</button>
+                                            {/* <button onClick={() => handleDelete(city)}
 													className="btn btn-danger m-2">
 													Delete {city.name}
-											</button>}	 */} 
+											</button> */}
 											<Link to={`/countries/${country.id}/cities/${city.id}/edit`}>
 												<button className="btn btn-secondary m-2">Edit {city.name}</button>
 											</Link>

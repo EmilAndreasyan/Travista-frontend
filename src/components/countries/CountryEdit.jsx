@@ -13,10 +13,21 @@ class CountryEdit extends React.Component {
 
     handleEdit = (event) => {
         event.preventDefault()
+        //debugger
         // let country = {...this.state, id: this.props.country.id}
         // this.props.editCountry(country)
+        // Object.values(this.state).forEach(val => {
+        //     if (val === ''){
+        //         return null
+        //     } else {
+        //     this.props.editCountry(this.state, this.props.country.id)
+        //     this.setState({name: '', capital: '', language: '', currency: '', area: '', flag_url: '' })
+        //     }
+        // })
         this.props.editCountry(this.state, this.props.country.id)
-    this.setState({name: '', capital: '', language: '', currency: '', area: '', flag_url: '' })
+        this.setState({name: '', capital: '', language: '', currency: '', area: '', flag_url: '' })
+        // let formData = Object.values(this.state).filter(val => val !== '')
+        // this.setState(formData, this.props.country.id)
     }
 
     render() { 

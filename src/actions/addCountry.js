@@ -10,6 +10,11 @@ export function addCountry (country) { // country == this.state from CountryInpu
         body: JSON.stringify(country)
     })
     .then(resp => resp.json())
-    .then(country => dispatch({type: 'ADD_COUNTRY', payload: country}))
-}
+    .then(country => {
+        if(country.error) {
+            alert(country.error)
+        } else {
+            dispatch({type: 'ADD_COUNTRY', payload: country}
+            )}
+    })}
 }

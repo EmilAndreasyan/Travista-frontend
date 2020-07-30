@@ -12,9 +12,26 @@ class CityEdit extends React.Component {
 
     handleEdit = event => {
         event.preventDefault()
+       //debugger
+        // how to leave unaltered untouched fields?
+        // for (const val in this.state) {
+            //     if (this.state[val] === '') {
+                //     alert ('all fields are required')
+                //     }
+                //     else {}
+                //  }
+        //         Object.values(this.state).forEach(val => {
+        //             if (val === '') {
+        //                 return null
+        //             } else {
+        //                 this.props.editCity(this.state, this.props.city.id, this.props.city.country_id)
+        //                 this.setState({name: '', image_url: '', description: '', population: '', comment: ''})
+        //    }
+        // });
         this.props.editCity(this.state, this.props.city.id, this.props.city.country_id)
         this.setState({name: '', image_url: '', description: '', population: '', comment: ''})
     }
+
     render() { 
         const {name, image_url, population, description, comment} = this.state
         return ( 

@@ -6,7 +6,7 @@ import CitiesAll from './CitiesAll';
 
 class Cities extends React.Component {
 
-    state = {like: true}
+    state = {liked: true}
 
     handleDelete = (city) =>{
         // make sure city.id and city.county_id are working
@@ -15,8 +15,8 @@ class Cities extends React.Component {
 
     toggleLike = (event) => {
         let toggleColor = "m-2 btn btn-"
-        this.setState({like: !this.state.like})
-        if (this.state.like) {
+        this.setState({liked: !this.state.liked})
+        if (this.state.liked) {
         event.target.innerHTML = 'liked';
         event.target.className = toggleColor + "success"
         } else {
@@ -32,7 +32,7 @@ class Cities extends React.Component {
             {cities && cities.map(city => (
                 <div key={city.id}>
                     <CityShow handleDelete={this.handleDelete} city={city} country={country} toggleLike={this.toggleLike}/>
-                    <CitiesAll handleDelete={this.handleDelete} toggleLike={this.toggleLike}/>
+                    <CitiesAll handleDelete={this.handleDelete} city={city} country={country} toggleLike={this.toggleLike}/>
                 </div>
             ))}
             </div>

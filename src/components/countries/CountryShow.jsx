@@ -21,7 +21,8 @@ const CountryShow = ({ country, handleDelete }) => {
 									style={{ height: '200px', width: '100%', display: 'block' }}
 								/>
 							}
-							<p>{country.name}</p><p> Language: {country.language}</p> <p> Currency: {country.currency}</p>{' '}
+							<p>{country.name}</p>
+							<p> Language: {country.language}</p> <p> Currency: {country.currency}</p>{' '}
 							<p>Area: {country.area} mi²</p>
 						</div>
 					) : null}

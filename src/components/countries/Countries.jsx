@@ -1,9 +1,7 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
 import CountryShow from './CountryShow'
 import {connect} from 'react-redux';
 import {deleteCountry} from '../../actions/deleteCountry'
-//import { render } from '@testing-library/react';
 
 class Countries extends React.Component {
 	handleDelete = (country) =>{
@@ -18,9 +16,10 @@ class Countries extends React.Component {
 		<div className="cards">
 		
 			{countries && countries.map((country) => (
-				<ul key={country.id}>
-					<Link to={`/countries/${country.id}`}><li>{country.name}</li></Link><CountryShow country={country} handleDelete={this.handleDelete}/>
-				</ul>
+				<div key={country.id}>
+					{/* <Link to={`/countries/${country.id}`}><li>{country.name}</li></Link> */}
+					<CountryShow country={country} handleDelete={this.handleDelete}/>
+				</div>
 			))}
 		</div>
 	);

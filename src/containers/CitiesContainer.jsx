@@ -5,9 +5,7 @@ import Cities from '../components/cities/Cities';
 
 class CitiesContainer extends React.Component {
 	componentDidMount() {
-		// fetches cities of country.id, but how to invoke all cities without countries from navbar?
 		this.props.fetchCities(this.props.country.id);
-		//  || this.props.fetchCities(this.props)
 	}
 	render() {
 		return (

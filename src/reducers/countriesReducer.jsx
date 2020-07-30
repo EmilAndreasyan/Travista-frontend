@@ -1,47 +1,46 @@
 //import uuid from 'uuid';
-export default function countriesReducer(state = {countries: [], cities: [], sightseeings: []}, action) {
+export default function countriesReducer(state = {countries: [], cities: []}, action) {
  //debugger
   // action.payload is object with arrays{[], []}, is the same as countries from backend when fetched in actions, that's why state.countries should be {[],[]}?
-  // sometimes action.payload shows data, sometimes it shows empty array
   switch (action.type) {
     case 'FETCH_COUNTRIES':
      //return {...state, countries: [...state.countries = {...action.payload}]}
      return {...state, countries: action.payload}
 
     case 'ADD_COUNTRY':
-      return {...state, countries: [...state.countries, action.payload]} //all previous countries + added country (action.payload), like push()
+      return {...state, countries: [...state.countries, action.payload]} //returns all previous countries + added country (action.payload), like push()
       //return state.countries.concat(action.payload)
 
     case 'EDIT_COUNTRY':
-      let editedCountry = state.countries.map(country => {
+      let countriesWithEdited = state.countries.map(country => {
         if (country.id === action.payload.id) {
           return action.payload // replace country with the same id
         } else {
           return country
         }
       })
-      return {...state, countries: editedCountry}
+      return {...state, countries: countriesWithEdited}
 
       case 'DELETE_COUNTRY':
-        let deletedCountry = state.countries.map(country => {
-          if (country.id === action.payload.id) {
-            return action.payload
-          } else
-          return country
-        })
-        return {...state, countries: deletedCountry}
+        // let countriesWithoutDeleted = state.countries.map(country => {
+        //   if (country.id === action.payload.id) {
+        //     return action.payload
+        //   } else
+        //   return country
+        // })
+        let countriesWithoutDeleted = state.countries.filter(country => country.id !== action.payload.id)
+        return {...state, countries: countriesWithoutDeleted}
 
     case 'FETCH_CITIES':
       // const elementsIndex = this.state.countries.findIndex(element => element.id == id )
       // const newArray = [...this.state.countries]
       // newArray[elementsIndex] = {...newArray[elementsIndex]}
-      //does't work, need to populate nested cities array of countries with action.payload
       return {...state, country: {...state.country, cities: action.payload}}
 
     case 'ADD_CITY':
       let cities = state.cities.map(city => {
         if (city.id === action.payload.id) {
-          return action.payload // replace city with the same id
+          return action.payload // replace city with the same id?
         } else {
           return city
         }
@@ -49,23 +48,24 @@ export default function countriesReducer(state = {countries: [], cities: [], sig
       return {...state, cities: cities}
       
     case 'EDIT_CITY':
-      let editedCity = state.cities.map(city => {
+      let citiesWithEdited = state.cities.map(city => {
         if(city.id === action.payload.id) {
           return action.payload
         } else
         return city
       })
-      return {...state, cities: editedCity}
+      return {...state, cities: citiesWithEdited}
 
     case 'DELETE_CITY':
-      let deletedCity = state.cities.map(city => {
+      let citiesWithoutDeleted = state.cities.map(city => {
         if (city.id === action.payload.id) {
           return action.payload // replace city with the same id
         } else {
           return city
         }
       })
-      return {...state, cities: deletedCity}
+      return {...state, cities: citiesWithoutDeleted}
+
     default:  
     return state
   }
