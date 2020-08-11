@@ -38,6 +38,6 @@ const CityShow = ({ city, handleDelete, country, toggleLike }) => {
 			) : null}
 		</div>
 	);
-};
+};	
 
 export default CityShow;

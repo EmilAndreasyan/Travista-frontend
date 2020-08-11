@@ -62,4 +62,8 @@ const CountryShow = ({ country, handleDelete }) => {
 	);
 };
 
+CountryShow.defaultProps = {
+	flag_url: 'http://i.imgur.com/bJw8ndW.png'
+}
+
 export default CountryShow;

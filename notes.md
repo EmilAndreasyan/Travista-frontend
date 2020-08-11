@@ -24,3 +24,83 @@ user should be able to like, rate, leave a comment, CRUD sightseengs
 questoions: 
 - Routing in React, switch, routerProp, match.url, useRouteMatch, useParams
 - fetches countryId/cities, but not all cities from Navbar
+
+add login form
+import React from "react";
+
+class LoginForm extends React.Component {
+  constructor() {
+    super();
+
+    this.state = {
+      username: '',
+      password: ''
+    };
+  }
+
+  handleChange = event => {
+    this.setState({
+      [event.target.name]: event.target.value
+    })
+  }
+
+  handleSubmit = event => {
+    event.preventDefault()
+
+    if (!this.state.username || !this.state.password) return
+
+    this.props.handleLogin(this.state)
+  }
+
+  render() {
+    return (
+      <form onSubmit={this.handleSubmit}>
+        <div>
+          <label>
+            Username
+            <input id="username" name="username" type="text" onChange={this.handleChange} value={this.state.username}/>
+          </label>
+        </div>
+        <div>
+          <label>
+            Password
+            <input id="password" name="password" type="password" onChange={this.handleChange} value={this.state.password}/>
+          </label>
+        </div>
+        <div>
+          <button type="submit">Log in</button>
+        </div>
+      </form>
+    );
+  }
+}
+
+export default LoginForm;
+
+add wish list for cities to go
+
+ <select name="type" id="type" onChange={this.props.onChangeType}>
+            <option value="all">All</option>
+            <option value="cat">Cats</option>
+            <option value="dog">Dogs</option>
+            <option value="micropig">Micropigs</option>
+          </select>
+
+state = {
+      pets: [],
+      filters: {
+        type: 'all'
+      }
+    }
+          onChangeType = ({ target: {value}}) => {
+  this.setState({filters: {...this.state.filters, type: value}})
+}
+
+
+ componentDidMount () {
+  this.interval = setInterval(this.clockTick, 1000) 
+  }
+  
+   componentWillUnmount () {
+     clearInterval(this.interval)
+   }

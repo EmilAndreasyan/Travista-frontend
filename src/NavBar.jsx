@@ -1,21 +1,14 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
-import CountriesContainer from './containers/CountriesContainer';
-import HomeContainer from './containers/HomeContainer'
-import CitiesAll from './components/cities/CitiesAll'
-import {connect} from 'react-redux';
-import {fetchCountries} from '../src/actions/fetchCountries'
+import { NavLink } from 'react-router-dom';
+
 //import Search from './Search'
 
 class Navbar extends React.Component {
 	// state = {query: '', setQuery: ''}
-	componentDidMount() {
-		this.props.fetchCountries()
-	}
+
 	render(){
 		return (
 <>
-<Router>
 			<nav className="navbar navbar-expand-lg navbar-dark bg-primary">
 			{/* <a class="navbar-brand" href="#">Navbar</a> */}
 			<button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
@@ -24,13 +17,13 @@ class Navbar extends React.Component {
 			<div className="collapse navbar-collapse" id="navbarColor01">
 			  <ul className="navbar-nav mr-auto">
 				<li className="nav-item active">
-				<Link to="/" className="nav-link">Home<span className="sr-only">(current)</span></Link>
+				<NavLink to="/" className="nav-link">Home<span className="sr-only">(current)</span></NavLink>
 				</li>
 				<li className="nav-item">
-				<Link to="/countries" className="nav-link">Countries</Link>
+				<NavLink to="/countries" className="nav-link">Countries</NavLink>
 				</li>
 				<li className="nav-item">
-				<Link to="/cities/all" className="nav-link">Cities</Link>
+				<NavLink to="/cities/all" className="nav-link">Cities</NavLink>
 				</li>
 			  </ul>
 			  <form className="form-inline my-2 my-lg-0">
@@ -39,16 +32,13 @@ class Navbar extends React.Component {
 			  </form>
 			</div>
 		  </nav>
-		  <Switch>
-				<Route exact path="/" component={HomeContainer}/>
-				<Route path="/countries" component={CountriesContainer}/>
-				<Route path="/cities/all" render={(routerProp) => <CitiesAll {...routerProp} countries={this.props.countries}/>}/>
-			</Switch>
-		  </Router>
 </>
 	);
 }
 };
+
+
+
 
 // function Countries() {
 // 	let match = useRouteMatch();
@@ -80,11 +70,7 @@ class Navbar extends React.Component {
 // 	return <h3>{topicId}</h3>;
 // }
 
-const mapStateToProps = (state) => {
-	return {
-		countries: state.countries
-	};
-};
 
-export default connect(mapStateToProps, {fetchCountries})(Navbar);
+
+export default Navbar;
 
