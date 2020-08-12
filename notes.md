@@ -15,13 +15,16 @@ Your application should have some minimal styling: feel free to stick to a frame
 Once your app is complete, fill out this checklist.
 
 
-list countries
-when clicked on country, should display list of cities with name, description
-user should be able to like, rate, leave a comment, CRUD city
-when clicked on city, should diplay list of sightseengs
-user should be able to like, rate, leave a comment, CRUD sightseengs
+- list countries
+- when clicked on country, should display list of cities with name, description
+- user should be able to like, rate, leave a comment, CRUD city
+- when clicked on city, should diplay list of sightseings
+- user should be able to like, rate, leave a comment, CRUD sightseengs
+- add wish list for cities and/or countries
+- add rating for cities and/or countries
+- add user login/signup page
 
-questoions: 
+questions: 
 - Routing in React, switch, routerProp, match.url, useRouteMatch, useParams
 - fetches countryId/cities, but not all cities from Navbar
 

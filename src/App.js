@@ -6,6 +6,7 @@ import CitiesAll from './components/cities/CitiesAll'
 import {connect} from 'react-redux';
 import {fetchCountries} from '../src/actions/fetchCountries'
 import Navbar from './NavBar'
+//import CitiesContainer from './containers/CitiesContainer';
 
 class App extends React.Component {
     state = {  }

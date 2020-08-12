@@ -5,17 +5,18 @@ import {Route, Switch, Link} from 'react-router-dom';
 import CountryInput from '../components/countries/CountryInput';
 import Countries from '../components/countries/Countries';
 
+
 class CountriesContainer extends React.Component {
 	state = { search: ''}
 
-	handleChange = event => {
+	handleSearch = event => {
 		const {name, value} = event.target
 		this.setState({[name]: value})
 	}
 	render() {
 		return (
 			<>
-			<input type="text" name="search" value={this.state.search} onChange={this.handleChange} placeholder="search for a country"/>
+			<input type="text" name="search" value={this.state.search} onChange={this.handleSearch} placeholder="search for a country"/>
 				<Link to='/countries/new' className="btn btn-success bg-info mt-2 mb-2">Add New Country</Link><br/>
 				<Switch>
 				{/* With Switch, /countries/new should be above /countries/:id, so that we have access to that, also, we don't need exact */}

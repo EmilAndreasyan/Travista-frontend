@@ -6,6 +6,7 @@ const Search = ({getQuery}) => {
         setText(q)
         getQuery(q)
     }
+
     return (
        <section className="search">
            <input type="text" placeholder="search" className="form-control" value={text} onChange={(event) => onChange(event.target.value) }
