@@ -24,9 +24,6 @@ class CountriesContainer extends React.Component {
 				{/* unlike render, component passes some props, like match, history */}
 				{/* <Route path="countries/:id" render={(routerProp) => <CountryShow {...routerProp} countries={this.props.countries}/>}/> */}
 				<Route path="/countries" render={(routerProp) => <Countries {...routerProp} countries={this.props.countries.filter(country => country.name.toLowerCase().includes(this.state.search.toLowerCase()))}/>}/>
-	
-				{/* if we want to pass Route props via render, we should use routerProp */}
-				{/* unlike component, render passes function, so that we have access to props*/}
 				</Switch>
 			</>
 		);

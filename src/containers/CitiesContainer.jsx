@@ -1,12 +1,14 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { fetchCities } from '../actions/fetchCities';
+//import { connect } from 'react-redux';
+//import { fetchCities } from '../actions/fetchCities';
 import Cities from '../components/cities/Cities';
+//import CitiesAll from '../components/cities/CitiesAll';
 
 class CitiesContainer extends React.Component {
-	componentDidMount() {
-		this.props.fetchCities(this.props.country.id);
-	}
+	// componentDidMount() {
+	// 	this.props.fetchCities(this.props.country.id);
+	// }
+	
 	render() {
 		return (
 			<div>
@@ -16,10 +18,11 @@ class CitiesContainer extends React.Component {
 	}
 }
 
-const mapStateToProps = (state) => {
-	return {
-		cities: state.countries
-	};
-};
+// const mapStateToProps = (state) => {
+// 	return {
+// 		cities: state.countries
+// 	};
+// };
 
-export default connect(mapStateToProps, { fetchCities })(CitiesContainer);
+//export default connect(mapStateToProps, { fetchCities })(CitiesContainer);
+export default CitiesContainer

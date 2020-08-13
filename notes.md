@@ -14,7 +14,6 @@ Your client-side application should handle the display of data with minimal data
 Your application should have some minimal styling: feel free to stick to a framework (like react-bootstrap), but if you want to write (additional) CSS yourself, go for it!
 Once your app is complete, fill out this checklist.
 
-git commit -m 'adding liked and disliked cities array'
 - list countries
 - when clicked on country, should display list of cities with name, description
 - user should be able to like, rate, leave a comment, CRUD city

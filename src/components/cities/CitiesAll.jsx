@@ -1,9 +1,18 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Route } from 'react-router-dom';
 
-const CitiesAll = ({ countries, handleDelete, toggleLike, likedCities }) => {
+class CitiesAll extends React.Component {
+	state = {search: ''}
+
+	handleSearch = event => {
+		const {name, value} = event.target
+		this.setState({[name]: value})
+	}
+	render(){
+		const {countries, toggleLike, match} = this.props
 	return (
 		<>
+		<input type="text" name="search" className="form-control" value={this.state.search} onChange={this.handleSearch} placeholder="search for a city"/>
 			{countries &&
 				countries.map((country) => {
 					return country.cities.map((city) => {
@@ -35,6 +44,9 @@ const CitiesAll = ({ countries, handleDelete, toggleLike, likedCities }) => {
 											<Link to={`/countries/${country.id}/cities/${city.id}/edit`}>
 												<button className="btn btn-secondary m-2">Edit {city.name}</button>
 											</Link>
+											<Route path={`${match.url}`} render={(routerProp => <CitiesAll {...routerProp} cities={countries.map(country => {
+												return country.cities.filter(city => city.name.toLowerCase().includes(this.state.search.toLo))
+											})}/>)}/>
                                             </div>							
 								) : null}
 							</div>
@@ -43,6 +55,7 @@ const CitiesAll = ({ countries, handleDelete, toggleLike, likedCities }) => {
 				})}
 		</>
 	);
+}
 };
 
 export default CitiesAll;
