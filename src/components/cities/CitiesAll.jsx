@@ -1,8 +1,7 @@
 import React from 'react';
-import { Link, Route } from 'react-router-dom';
-import CityEdit from '../cities/CityEdit';
+import { Link } from 'react-router-dom';
 
-const CitiesAll = ({ countries, handleDelete, toggleLike }) => {
+const CitiesAll = ({ countries, handleDelete, toggleLike, likedCities }) => {
 	return (
 		<>
 			{countries &&
@@ -27,6 +26,7 @@ const CitiesAll = ({ countries, handleDelete, toggleLike }) => {
 											Description: {city.description}
 											<br />
 											{/* error: toggleLike and handleDelete are not a functioning */}
+											
 											<button onClick={toggleLike} className="btn btn-add m-2">Like</button>
                                             {/* <button onClick={() => handleDelete(city)}
 													className="btn btn-danger m-2">
@@ -35,10 +35,6 @@ const CitiesAll = ({ countries, handleDelete, toggleLike }) => {
 											<Link to={`/countries/${country.id}/cities/${city.id}/edit`}>
 												<button className="btn btn-secondary m-2">Edit {city.name}</button>
 											</Link>
-										<Route
-											path={`/countries/${country.id}/cities/${city.id}/edit`}
-											render={(routerProps) => <CityEdit {...routerProps} city={city} />}
-                                            />
                                             </div>							
 								) : null}
 							</div>
