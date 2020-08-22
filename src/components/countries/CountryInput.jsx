@@ -8,7 +8,7 @@ class CountryInput extends React.Component {
     handleChange = (event) => {
         event.preventDefault();
         const {name, value} = event.target
-        this.setState({[name]: value}) // without brackets will interpret name as key of object!
+        this.setState({[name]: value}) // without brackets will not interpret name as key of object!
     }
 
     handleSubmit = (event) => {
