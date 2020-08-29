@@ -17,8 +17,8 @@
 
 
 import React, { Component } from 'react';
-import Registration from '../components/authorization/Registration'
-import Login from '../components/authorization/Login'
+import Registration from './components/authorization/Registration'
+import Login from './components/authorization/Login'
 
 export default class Home extends Component {
 
@@ -33,6 +33,9 @@ export default class Home extends Component {
         <>
         <Registration handleAuth={this.handleAuth}/>
         <Login handleAuth={this.handleAuth}/>
+        <h1>Welcome to Travista</h1>
+        <h3><i>Travel experience worthy seeing and memorizing</i></h3>
+        <h4>Here you can bookmark your favorite destinations and change them</h4>
         </> 
         );
 }
