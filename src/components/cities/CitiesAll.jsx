@@ -45,7 +45,7 @@ class CitiesAll extends React.Component {
 												<button className="btn btn-secondary m-2">Edit {city.name}</button>
 											</Link>
 											<Route path={`${match.url}`} render={(routerProp => <CitiesAll {...routerProp} cities={countries.map(country => {
-												return country.cities.filter(city => city.name.toLowerCase().includes(this.state.search.toLo))
+												return country.cities.filter(city => city.name.toLowerCase().includes(this.state.search.toLowerCase()))
 											})}/>)}/>
                                             </div>							
 								) : null}

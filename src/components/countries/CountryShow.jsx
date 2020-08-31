@@ -1,11 +1,11 @@
+// git add . && git commit -m "adding match match.url props to CountryShow component" git push -u origin master
 import React from 'react';
-// import {Redirect} from 'react-router-dom';
 import { Link, Route, Switch } from 'react-router-dom';
 import CountryEdit from './CountryEdit';
 import CitiesContainer from '../../containers/CitiesContainer';
 import CityInput from '../cities/CityInput';
 
-const CountryShow = ({ country, handleDelete }) => {
+const CountryShow = ({ country, handleDelete, match }) => {
 	//let country = props.countries[props.match.params.id - 1] // index of array starts at 0, that's why -1
 	//let country = country.filter(country => country.id === props.match.params.id)[0]
 	return (
@@ -31,13 +31,20 @@ const CountryShow = ({ country, handleDelete }) => {
 					Delete {country.name}
 				</button>
 				<br />
-
+				{/* <Link to={`${match.url}/edit`}>
+					<button className="btn btn-secondary">Edit {country.name}</button>
+				</Link> */}
 				<Link to={`/countries/${country.id}/edit`}>
 					<button className="btn btn-secondary">Edit {country.name}</button>
 				</Link>
 				<br />
+				{/* <Link to={`${match.url}/cities`}><button className="btn btn-outline-light">Explore cities of {country.name}</button>
+				</Link> */}
 				<Link to={`/countries/${country.id}/cities`}><button className="btn btn-outline-light">Explore cities of {country.name}</button>
 				</Link>
+				{/* <Link to={`${match.url}/cities/new`}>
+					<button className="btn btn-success m-2">Add new city</button>
+				</Link> */}
 				<Link to={`/countries/${country.id}/cities/new`}>
 					<button className="btn btn-success m-2">Add new city</button>
 				</Link>
