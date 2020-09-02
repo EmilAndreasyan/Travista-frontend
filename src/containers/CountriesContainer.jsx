@@ -18,9 +18,10 @@ class CountriesContainer extends React.Component {
 			<>
 			<input type="text" name="search" className="form-control" value={this.state.search} onChange={this.handleSearch} placeholder="search for a country"/>
 				<Link to='/countries/new' className="btn btn-success bg-info mt-2 mb-2">Add New Country</Link><br/>
-				
+				<Switch>
 				<Route path='/countries/new' component={CountryInput}/>
 				<Route path="/countries" render={(routerProp) => <Countries {...routerProp} countries={this.props.countries.filter(country => country.name.toLowerCase().includes(this.state.search.toLowerCase()))}/>}/>
+				</Switch>
 			</>
 		);
 	}

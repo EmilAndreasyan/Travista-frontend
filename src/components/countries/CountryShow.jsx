@@ -1,4 +1,3 @@
-// git add . && git commit -m "adding match match.url props to CountryShow component" git push -u origin master
 import React from 'react';
 import { Link, Route, Switch } from 'react-router-dom';
 import CountryEdit from './CountryEdit';
@@ -31,33 +30,38 @@ const CountryShow = ({ country, handleDelete, match }) => {
 					Delete {country.name}
 				</button>
 				<br />
-				{/* <Link to={`${match.url}/edit`}>
-					<button className="btn btn-secondary">Edit {country.name}</button>
-				</Link> */}
-				<Link to={`/countries/${country.id}/edit`}>
+				<Link to={`${match.url}/edit`}>
 					<button className="btn btn-secondary">Edit {country.name}</button>
 				</Link>
 				<br />
-				{/* <Link to={`${match.url}/cities`}><button className="btn btn-outline-light">Explore cities of {country.name}</button>
-				</Link> */}
-				<Link to={`/countries/${country.id}/cities`}><button className="btn btn-outline-light">Explore cities of {country.name}</button>
+				<Link to={`${match.url}/cities`}><button className="btn btn-outline-light">Explore cities of {country.name}</button>
 				</Link>
-				{/* <Link to={`${match.url}/cities/new`}>
-					<button className="btn btn-success m-2">Add new city</button>
-				</Link> */}
-				<Link to={`/countries/${country.id}/cities/new`}>
+				<Link to={`${match.url}/cities/new`}>
 					<button className="btn btn-success m-2">Add new city</button>
 				</Link>
+				{/* <Link to={`/countries/${country.id}/edit`}>
+					<button className="btn btn-secondary">Edit {country.name}</button>
+				</Link> */}
+				{/* <Link to={`/countries/${country.id}/cities`}><button className="btn btn-outline-light">Explore cities of {country.name}</button>
+				</Link> */}
+				{/* <Link to={`/countries/${country.id}/cities/new`}>
+					<button className="btn btn-success m-2">Add new city</button>
+				</Link> */}
 				<Switch>
-					<Route
+					
+					<Route path={`${match.url}/edit`} render={(props) => <CountryEdit {...props} country={country}/>}/>
+					<Route path={`${match.url}/cities/new`} render={(props) => <CityInput {...props} country={country}/>}/>
+					<Route path={`${match.url}/cities`} render={(props) => <CitiesContainer {...props} country={country}/>}/>
+
+					{/* <Route
 						path={`/countries/${country.id}/edit`}
 						render={(routerProps) => <CountryEdit {...routerProps} country={country} />}
-					/>
-						<Route path={`/countries/${country.id}/cities/new`} render={(routerProps) => <CityInput {...routerProps} country={country}/>} />
-					<Route
+					/> */}	
+					{/* <Route path={`/countries/${country.id}/cities/new`} render={(routerProps) => <CityInput {...routerProps} country={country}/>} /> */}
+					{/* <Route
 						path={`/countries/${country.id}/cities`}
 						render={(routerProps) => <CitiesContainer {...routerProps} country={country} />}
-					/>
+					/> */}
 					{/* <Route
 							exact path={`/countries/${country.id}/cities/new`}
 							render={(routerProps) => <CityInput {...routerProps} city={country.city} country={country} />}
